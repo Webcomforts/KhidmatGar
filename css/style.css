@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+.wrapper { width:998px; margin:0px auto; }
+.sign-up-in { width:420px; margin-left:570px;  float:left; }
+.sign-up-in .sign-up { width:100%; float:left; background:url(../images/sign-up.jpg) top left no-repeat; padding-top:40px; padding-left:80px; border-bottom:1px solid #dfdfdf; height:65px; }
+.sign-up-in .sign-in { width:100%; float:left; padding-top:15px; border-bottom:1px solid #dfdfdf; min-height:200px; margin-bottom:10px; }
+.sign-up-in .sign-in form { margin-top:20px; }
+.demo { width:500px; float:left; margin-top:30px; margin-left:570px; }
+p { font-size:11px; color:#333333; padding-top:20px; }
+.message_box{ color:#009933; margin:0px;}
+.error_box{ color:#990000; margin:0px;}
+
+
