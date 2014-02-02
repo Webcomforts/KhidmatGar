@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{ margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:13px; color:#000000;}
+
+a{ text-decoration:none; color:#1b90e1;}
+a:hover{ color:#4fb4f7;}
+
+h3{ color:#1b90e1; margin:0px; padding:5px; }
+#top{ height:60px; padding:10px 0 5px 0; background-color:#000000; color:#FFFFFF;  }
+
+#container {  width:980px; margin:0px auto 0px auto; }
+
+#logo { height: 60px; width:300px; float:left; }
+
+#menu { height: 60px; width:300px; float:right; text-align:right; margin-top:20px; }
+
+#content{ width:980px;   min-height:600px; height:auto;   margin:10px auto 10px auto;  } 
+
+.problems{ color:#333333; letter-spacing:1px; font-size:14px;}
+
+
+#listing{ width:650px; float:left; padding:5px; }
+.list{ border:3px solid #eee; background-color:#f5f5f5; height:120px; padding:5px;  }
+
+.list:hover{ border:3px solid #4fb4f7; background-color:#fff;  }
+
+#sideBar{ width:250px; float:right; padding:5px;}
+
+#footer{ padding:20px 0; background-color:#000000; color:#FFFFFF; text-align:center;  }
