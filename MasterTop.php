@@ -13,14 +13,18 @@
 	<div id="container">
     
     	<div id="logo">
-    
-    	<img src="images/khidmatgar-logo.png"  />
+    	
+        <a href="home.php">
+        
+    	<img src="images/khidmatgar-logo.png"    />
+        
+        </a>
         
         </div>
         
         <div id="menu">
     
-    	 <a href="post-problem.php">Post a Problem</a> | <a href="#">Edit profile</a> | <a href="index.php">Sign out</a>
+    	Welcome <?php echo $_SESSION['inputEmail']; ?>! <a href="edit.php">My Account</a> | <a href="index.php">Sign out</a> &nbsp; &nbsp; <a href="post-problem.php" class="post_problems">Post a Problem</a> 
         
         </div>
     

@@ -71,7 +71,7 @@ function validate_login()
 }
 </script>
 <body style="background:url(images/bg-login.jpg) top left no-repeat">
-	<div class="demo"><img src="images/mascot.jpg" width="496" height="248" /></div>
+	<div class="demo"><img src="images/mascot.jpg" width="320" style="margin-bottom:20px;"  /></div>
 <div class="sign-up-in">
     	<div class="sign-up">
     		<div class="input-append">
@@ -101,7 +101,7 @@ function validate_login()
   <div class="control-group">
     <label class="control-label" for="inputEmail">Email</label>
     <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
+      <input type="text" id="inputEmail" name="inputEmail"  placeholder="Email">
     </div>
   </div>
   <div class="control-group">

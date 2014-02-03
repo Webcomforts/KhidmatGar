@@ -9,6 +9,7 @@ extract($_POST, EXTR_OVERWRITE);
 if($bcheck_login=='true')
 {
 
+$_SESSION['inputEmail'] = $inputEmail;
 redirect_to('home.php', 'srch', '');
 
 }

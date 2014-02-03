@@ -1,4 +1,10 @@
-<?php include "MasterTop.php"; ?>
+<?php 
+include "includes/functions.php";
+include("includes/class.upload.php");
+make_connection(); 
+
+
+include "MasterTop.php"; ?>
 
 
 <div id="content">
@@ -10,106 +16,77 @@
 	
     
     <form >
-    <select style="padding:5px; width:250px;  border:1px solid #e3e3e3;">
     
-    <option value="">Select Category</option>
-    <option value="">Agriculture</option>
-    <option value="">Agriculture</option>
-    <option value="">Agriculture</option>
+    <select name="parent_id" id="parent_id" style="padding:5px; width:250px;  border:1px solid #e3e3e3;"  >
+      <option value="">Select Category</option>
+    <?php 
+	
+	$ParentRS = Run("select id, title from tblcategories "); 
+	while($ParentROW = GetRow($ParentRS)){
+	
+	
+	?>
+ 	
+    <option value="<?php echo $ParentROW['id']; ?>"><?php echo $ParentROW['title']; ?></option>
+      
+      <?php 
+	  
+	}
+	  
+	  ?>
+      </select>
     
-    </select>
-    
-    <input type="text" style="padding:5px; width:260px; border:1px solid #e3e3e3;" /><input type="submit" value="Search Problems" style="padding:5px;" />
+    <input type="text" style="padding:5px; width:260px; border:1px solid #e3e3e3;" placeholder="Type what you want!" /><input type="submit" value="Search Problems" style="padding:5px;" />
     </form>
  
 <div style="clear:both;">&nbsp;</div>
-    
-<div class="list"><a href="#" class="problems">Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges.</a> <br /><br />
-<a href="#" >   4 Solution(s)  </a> | <a href="#" >Post a Solution</a>
-
-</div>
-
-<div style="clear:both;">&nbsp;</div>
-
+  <?php 
+	
+	$RS = Run("select * from tblproblems order by id desc"); 
+	while($ROW = GetRow($RS)){
+	
+	
+	?>   
 <div class="list">
+<?php 
 
-<img src="images/temp/29.jpg" style="float:left; padding-right:8px; " width="200" />
-<a href="#" class="problems">Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges.</a> <br /><br />
-<a href="#" >   0 Solution(s)  </a> | <a href="#" >Post a Solution</a>
+if($ROW['picture']!=''){ 
 
-</div>
+?>
+<img src="problems/<?php echo $ROW['picture']; ?>" style="float:right; padding-left:8px; " width="200" height="120" />
 
-<div style="clear:both;">&nbsp;</div>
+<?php } ?>
 
-<div class="list">
+<a href="problem.php?id=<?php echo $ROW['id']; ?>" class="problems"><?php echo $ROW['title']; ?></a> <br />
+<p style="color:#777;"><?php echo $ROW['details']; ?></p>
+<a href="problem.php?id=<?php echo $ROW['id']; ?>" >   Read more  </a> | 
+<a href="problem.php?id=<?php echo $ROW['id']; ?>#solutions" >  
 
-<img src="images/temp/31.jpg" style="float:left; padding-right:8px; " width="200" />
-<a href="#" class="problems">Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges.</a> <br /><br />
-<a href="#" >   2 Solution(s)  </a> | <a href="#" >Post a Solution</a>
+<?php 
+$problem_id		=  $ROW['id'];
+$Sol 			= "select id from tblsolutions where problem_id = '$problem_id'"; 
+$SolRES 		= Run($Sol);
+echo 			Records($SolRES);
 
-</div>
 
-<div style="clear:both;">&nbsp;</div>
+?> 
 
-<div class="list"><a href="#" class="problems">Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges.</a> <br /><br />
-<a href="#" >   1 Solution(s)  </a> | <a href="#" >Post a Solution</a>
-
-</div>
-
-<div style="clear:both;">&nbsp;</div>
-
-<div class="list"><a href="#" class="problems">Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges.</a> <br /><br />
-<a href="#" >   0 Solution(s)  </a> | <a href="#" >Post a Solution</a>
-
-</div>
-
-<div style="clear:both;">&nbsp;</div>
-
-<div class="list">
-
-<img src="images/temp/30.jpg" style="float:left; padding-right:8px; " width="200" />
-<a href="#" class="problems">Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges. Web Based Attendence managment system for Schools and Colleges.</a> <br /><br />
-<a href="#" >0 Solution(s)</a> | <a href="#" >Post a Solution</a>
-
-</div>
-
-<div style="clear:both;">&nbsp;</div>
+Solution(s)  </a> | <a href="post-solution.php?problem=<?php echo $ROW['id']; ?>" class="post_solutions" >Post a Solution</a>
  
+</div>
+
+<div style="clear:both;">&nbsp;</div>
+ <?php 
+	  
+	}
+	  
+	  ?> 
 
 </div>
 
-<div id="sideBar">
-
-<h3>Latest Solutions</h3>
-
-<hr  />
+<?php include "SideBar.php"; ?>
 
 
-
-
-<img src="images/temp/02.jpg" style="float:left; padding-right:4px;" />
-<a href="#">Web Based Attendence managment system for Schools and Colleges. </a>
-
-<div style="clear:both">&nbsp;</div>
-
-
-<img src="images/temp/02.jpg" style="float:left; padding-right:4px;" />
-<a href="#">Web Based Attendence managment system for Schools and Colleges.</a>
-
-<div style="clear:both">&nbsp;</div>
-
-
-<img src="images/temp/02.jpg" style="float:left; padding-right:4px;" />
-<a href="#">Web Based Attendence managment system for Schools and Colleges.</a>
-
-<div style="clear:both">&nbsp;</div>
-
-
-</div>
-
-<div style="clear:both">&nbsp;</div>
-
-</div>
 
 
 <?php include "Footer.php"; ?>
